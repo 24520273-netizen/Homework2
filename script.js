@@ -14,3 +14,16 @@ drumPads.forEach((pad) => {
         playSound(pad);
     });
 });
+window.addEventListener('keydown', (event) => {
+    if (event.repeat) return;
+
+    const key = event.key.toLowerCase();
+
+    const pad = document.querySelector(
+        `.drum-pad[data-key="${key}"]`
+    );
+
+    if (!pad) return;
+
+    playSound(pad);
+});
